@@ -26,12 +26,5 @@ jobs:
     - name: Run pytest
       run: |
         mkdir -p results
-        pytest tests/test.py --junitxml=results/test-results.xml
-
-    # Step 5: Upload test results (optional)
-    - name: Upload test results
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: results/
+        pytest tests/test.py 
 
