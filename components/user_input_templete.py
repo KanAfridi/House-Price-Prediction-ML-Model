@@ -7,8 +7,9 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import streamlit as st
 import pandas as pd
 import numpy as np
-import os
 from utils.load_pickle import df, model
+
+
 
 # This is the template for streamlit model
 def get_user_input(df):
@@ -77,11 +78,11 @@ def render_prediction_page(input_data, model):
 
         #log_prediction(user_input, predicted_price)
 
-
+# Load data and model
 def main():
     render_prediction_page(df, model)
 
-
+# Run the app
 if __name__ == "__main__":
     main()
 

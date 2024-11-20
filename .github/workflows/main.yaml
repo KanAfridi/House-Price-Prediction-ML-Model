@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v2
 
     # Set up Python environment
-    - name: Set up Python 3.8
+    - name: Set up Python 3.12
       uses: actions/setup-python@v2
       with:
         python-version: '3.12'
@@ -22,21 +22,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Run pytest to check for tests
+    # Step 4: Run pytest for testing
     - name: Run pytest
       run: |
-        pytest tests\test.py 
+        mkdir -p results
+        pytest --junitxml=results/test-results.xml
 
-    # Optional: Deploy Streamlit app to a cloud platform (e.g., Streamlit sharing, Heroku, etc.)
-    # If you have set up deployment via Streamlit sharing or other methods, you can use this.
-    # Example for Streamlit sharing: 
-    # - name: Deploy Streamlit app
-    #   run: |
-    #     streamlit run app.py
-
-    # Optional: Upload artifacts (such as test reports)
+    # Step 5: Upload test results (optional)
     - name: Upload test results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
-        name: pytest-results
-        path: result.xml
+        name: test-results
+        path: results/

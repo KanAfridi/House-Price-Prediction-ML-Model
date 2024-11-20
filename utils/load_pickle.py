@@ -1,12 +1,21 @@
+
 import sys
 import os
-
 # Add project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-#import os
 import pickle
+
+# Function to load the data from the pickle file
+def load_model():
+    try:
+        with open('XGBR__model.pkl', 'rb') as file:
+            model = pickle.load(file)
+            return model
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        return None
 
 # function to load the data from the pickle file
 def load_data():
@@ -18,16 +27,7 @@ def load_data():
         print(f"Error: {e}")
         return None
 
-# function to load the model
-def load_model():
-    try:
-        with open('XGBR__model.pkl', 'rb') as file:
-            model = pickle.load(file)
-            return model
-    except FileNotFoundError as e:
-        print(f"Error: {e}")
-        return None
-
+# Load the model
 model = load_model()
 df = load_data()
 
