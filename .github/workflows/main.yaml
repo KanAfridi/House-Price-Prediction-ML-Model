@@ -25,6 +25,5 @@ jobs:
     # Step 4: Run pytest for testing
     - name: Run pytest
       run: |
-        mkdir -p results
         pytest tests/test.py -v
 
