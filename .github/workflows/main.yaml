@@ -1,0 +1,42 @@
+name: ML Workflow with pytest and Streamlit
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Set up Python environment
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    # Install dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Run pytest to check for tests
+    - name: Run pytest
+      run: |
+        pytest tests\test.py 
+
+    # Optional: Deploy Streamlit app to a cloud platform (e.g., Streamlit sharing, Heroku, etc.)
+    # If you have set up deployment via Streamlit sharing or other methods, you can use this.
+    # Example for Streamlit sharing: 
+    # - name: Deploy Streamlit app
+    #   run: |
+    #     streamlit run app.py
+
+    # Optional: Upload artifacts (such as test reports)
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytest-results
+        path: result.xml

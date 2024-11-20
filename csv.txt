@@ -1,0 +1,10 @@
+# this funcstion will save the predictions in the csv file 
+def log_prediction(input_data, predicted_price, log_file='predictions_log.csv'):
+    """Log prediction results to a CSV file."""
+    input_data = pd.DataFrame(input_data)
+    input_data['Predicted_Price'] = [predicted_price]
+
+    if not os.path.exists(log_file):
+        input_data.to_csv(log_file, index=False)
+    else:
+        input_data.to_csv(log_file, mode='a', header=False, index=False)
