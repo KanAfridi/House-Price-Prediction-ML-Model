@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="20.227" timestamp="2024-11-20T20:38:18.305274+05:00" hostname="DESKTOP-JC6PKJJ"><testcase classname="tests.test" name="test_predicts" time="0.324" /></testsuite></testsuites>
