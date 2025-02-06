@@ -6,6 +6,8 @@ This repository contains the machine learning model for predicting house prices 
 
 This project is aimed at predicting house prices using historical data that includes various features such as the number of bedrooms, bathrooms, square footage, and other characteristics of the properties. The main objective is to provide accurate house price predictions, which can assist real estate professionals, buyers, and sellers in making informed decisions.
 
+### Webapp Link:  [House Price Prediction Webapp](https://kanafridi-house-price-prediction-ml-model-srcapp-pmuvq7.streamlit.app/)
+
 ## 🛠️ Software and Tools Requirements
 
 Before running this project, make sure you have the following tools and software installed:
